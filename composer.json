@@ -1,0 +1,21 @@
+{
+    "name": "truearrowsoftware/tasapi",
+    "description": "API framework to help generate JSON base quick API, it use TASLIB ",
+    "type": "library",    
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sumit Gupta",
+            "email": "truearrowsoftware@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TAS\\Core\\": "src/"
+        }
+    },   
+    "require": {
+        "php": ">=7.2",
+        "truearrowsoftware/taslib": "^1.0.15"
+    }
+}

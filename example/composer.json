@@ -1,0 +1,15 @@
+{
+    "name": "tas/apiexample",
+    "description": "API Example.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sumit Gupta",
+            "email": "truearrowsoftware@outlook.com"
+        }
+    ],
+    "require": {
+        "truearrowsoftware/taslib": "^1.0"
+    }
+}
