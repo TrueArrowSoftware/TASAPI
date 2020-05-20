@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "TAS\\Core\\": "src/"
+            "TAS\\API\\": "src/"
         }
     },   
     "require": {
