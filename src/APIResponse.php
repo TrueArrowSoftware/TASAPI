@@ -40,12 +40,16 @@ class APIResponse
         $response->Type = 'error';
         $response->Output = array(
             'error' => true,
-            'message' => $errorMessage['message'],
+            'message' => \mb_convert_encoding($errorMessage['message'], 'UTF-8'),
         );
-        
+
         foreach ($errorMessage as $i => $v) {
-            if (strtolower($i) != 'message' && strtolower($i) != 'error' && strtolower($i) != 'success') {
-                $response->Output[$i] = $v;
+            if (!is_object($v)) {
+                if (strtolower($i) != 'message' && strtolower($i) != 'error' && strtolower($i) != 'success') {
+                    $response->Output[$i] = \mb_convert_encoding($v, 'UTF-8');
+                }
+            } else {
+                throw new \Exception('Invalid object in error response', 1000);
             }
         }
 
@@ -66,7 +70,11 @@ class APIResponse
         );
         foreach ($obj as $i => $v) {
             if (strtolower($i) != 'message' && strtolower($i) != 'error' && strtolower($i) != 'success') {
-                $response->Output[$i] = $v;
+                if (!is_object($v)) {
+                    $response->Output[$i] = \mb_convert_encoding($v, 'UTF-8');
+                } else {
+                    $response->Output[$i] = $v;
+                }
             }
         }
 
