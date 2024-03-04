@@ -117,7 +117,7 @@ class APIRequest
             return 6;
         }
 
-        $authresult = \call_user_func(\TAS\API\APIRequest::$AuthenticationCallBack, $data['authentication']);
+        $authresult = \call_user_func(\TAS\API\APIRequest::$AuthenticationCallBack, $data['authentication'], $data['type']);
         if (!$authresult) {
             return 7;
         }
